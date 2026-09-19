@@ -1,56 +1,56 @@
-#  AI-Powered Resume Screening System using NLP & TF-IDF
+# AI Resume Screening System — TF-IDF Candidate Ranking
 
-An intelligent Resume Screening System built using **Natural Language Processing (NLP)** and **TF-IDF-based semantic similarity** to automate candidate shortlisting and improve recruitment efficiency.
+## Project Overview
 
-This project helps recruiters identify the most relevant candidates by comparing resumes with a given Job Description (JD) using multiple scoring parameters such as skills, education, experience, and contextual similarity.
+This project builds a **rule-assisted resume ranking workflow** using Python, text preprocessing, TF-IDF, cosine similarity, and structured scoring.
 
----
+The system compares synthetic resumes against a job description and produces a ranked candidate list using multiple signals such as skills, education, experience, and **lexical text similarity**.
 
-#  Project Objective
+> TF-IDF + cosine similarity is used here as a text-similarity baseline. It should not be interpreted as a modern embedding-based semantic model.
 
-Manual resume screening is time-consuming, repetitive, and often inconsistent.
+## Objective
 
-The goal of this project is to build an AI-assisted screening pipeline that:
-- Reduces manual effort
-- Improves candidate matching accuracy
-- Ranks resumes automatically
-- Makes hiring workflows faster and more scalable
+The project explores how a lightweight automated workflow can:
 
----
+- preprocess resume text
+- compare resumes with a job description
+- detect skill overlap
+- extract simple experience signals
+- combine multiple scoring components
+- rank candidates consistently
+- export a shortlist for review
 
-#  Features
+The project demonstrates a ranking workflow; it does **not** claim validated improvements in hiring accuracy without a labelled benchmark or human-evaluation study.
 
-- ✅ Resume preprocessing and text cleaning
-- ✅ TF-IDF based semantic similarity matching
-- ✅ Skill overlap detection
-- ✅ Education matching
-- ✅ Experience extraction using regex
-- ✅ Weighted candidate ranking system
-- ✅ Interactive filtering dashboard
-- ✅ Candidate shortlist export to CSV
-- ✅ Resume scoring visualization
+## Features
 
----
+- resume preprocessing and cleaning
+- TF-IDF vectorization
+- cosine-similarity scoring
+- skill overlap detection
+- education matching
+- regex-based experience extraction
+- weighted candidate scoring
+- interactive filtering with ipywidgets
+- shortlist export
+- score visualization
 
-# 🛠️ Technologies Used
+## Tech Stack
 
-| Category | Tools & Libraries |
+| Category | Tools |
 |---|---|
-| Programming Language | Python |
-| Data Handling | Pandas |
-| NLP | TF-IDF Vectorizer |
-| Similarity Calculation | Cosine Similarity |
+| Language | Python |
+| Data handling | Pandas |
+| Text representation | TF-IDF Vectorizer |
+| Similarity | Cosine Similarity |
 | Visualization | Matplotlib |
-| Interactive UI | ipywidgets |
-| Notebook Environment | Jupyter Notebook |
+| Interactive controls | ipywidgets |
+| Environment | Jupyter Notebook |
 
----
+## Dataset
 
-#  Dataset Information
+The repository uses a **synthetic resume dataset** with fields such as:
 
-The project uses a synthetic dataset containing multiple candidate resumes.
-
-### Dataset Fields:
 - Name
 - Email
 - Phone
@@ -61,119 +61,68 @@ The project uses a synthetic dataset containing multiple candidate resumes.
 - Projects
 - Certifications
 
----
+Because the data is synthetic, the project is best viewed as a workflow prototype rather than a validated production hiring system.
 
-# ⚙️ Project Workflow
+## Workflow
 
-## 1️⃣ Data Loading
-- Imported resume dataset from CSV format
-- Loaded resumes into Pandas DataFrame
+```text
+Synthetic resumes
+      ↓
+Text cleaning / preprocessing
+      ↓
+Job-description processing
+      ↓
+TF-IDF representation
+      ↓
+Cosine similarity
+      ↓
+Structured skill / education / experience signals
+      ↓
+Weighted score
+      ↓
+Candidate ranking
+      ↓
+Interactive review / CSV export
+```
 
-## 2️⃣ Data Preprocessing
-- Removed unnecessary symbols and formatting
-- Combined important resume sections
-- Converted text into machine-readable format
+## Sample Output
 
-## 3️⃣ Job Description Parsing
-- Extracted required skills and qualifications from JD
-
-## 4️⃣ Semantic Similarity Matching
-- Applied TF-IDF Vectorization
-- Calculated cosine similarity between resumes and JD
-
-## 5️⃣ Resume Scoring
-Candidates were evaluated based on:
-- Skill Match
-- Education Match
-- Experience Relevance
-- Semantic Similarity
-
-## 6️⃣ Candidate Ranking
-- Generated final weighted scores
-- Ranked candidates from highest to lowest relevance
-
-## 7️⃣ Interactive Dashboard
-Users can:
-- Filter candidates
-- Search profiles
-- Analyze rankings
-- Export shortlisted resumes
-
----
-
-# 📊 Sample Output
-
-| Candidate Name | Final Score |
-|---|---|
+| Candidate | Final Score |
+|---|---:|
 | Priya Sharma | 2.84 |
 | Amit Khanna | 1.43 |
 | Shruti Shah | 1.42 |
 
----
+The score is a project-specific ranking value, not a calibrated probability of candidate quality or hiring success.
 
-# 📈 Key Learning Outcomes
+## Limitations
 
-Through this project, I gained hands-on experience in:
-- NLP fundamentals
-- TF-IDF Vectorization
-- Cosine Similarity
-- Resume parsing logic
-- Text preprocessing
-- Interactive dashboard creation
-- Candidate ranking systems
-- End-to-end ML workflow design
+- synthetic dataset
+- keyword and lexical dependence
+- no labelled ground-truth benchmark
+- no recruiter agreement study
+- no fairness / bias evaluation
+- no contextual embedding model
+- regex-based experience extraction is simplistic
 
----
+## Future Improvements
 
-# 💡 Future Improvements
+- Sentence Transformers or other embedding models
+- PDF resume parsing
+- Streamlit deployment
+- labelled evaluation dataset
+- recruiter agreement metrics
+- fairness and subgroup analysis
+- calibration of ranking weights
+- explainable score breakdowns
 
-- Integrating BERT/Sentence Transformers
-- PDF Resume Parsing
-- Streamlit Web Application Deployment
-- Real-time Recruiter Dashboard
-- OCR Support for Scanned Resumes
-- AI-based Candidate Recommendations
+## How to Run
 
----
+1. Clone the repository.
+2. Install the libraries used in the notebook, such as Pandas, scikit-learn, Matplotlib, Jupyter, and ipywidgets.
+3. Launch Jupyter Notebook.
+4. Open `AI-Resume-Screening-System.ipynb`.
 
-# ▶️ How to Run the Project
+## What This Project Demonstrates
 
-## Step 1: Clone Repository
-```bash
-git clone https://github.com/codernav01/AI-Resume-Screening-System.git
-```
-
-## Step 2: Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-## Step 3: Launch Jupyter Notebook
-```bash
-jupyter notebook
-```
-
-## Step 4: Open Notebook
-```bash
-Resume-Screening-System.ipynb
-```
-
----
-
-#  Project Output
-
-- Ranked Resume List
-- Candidate Similarity Scores
-- Interactive Dashboard
-- Downloadable Shortlist CSV
-- Resume Matching Insights
-
----
-
-# 📌 Conclusion
-
-This project demonstrates how AI and NLP techniques can streamline modern recruitment workflows by automating resume analysis and candidate ranking.
-
-By combining TF-IDF, cosine similarity, and structured scoring mechanisms, the system helps recruiters identify the most suitable candidates in a faster, smarter, and more objective way.
-
----
+This project demonstrates **text preprocessing, similarity modelling, structured scoring, and ranking-system design** while making the limits of a TF-IDF prototype explicit.
