@@ -1,18 +1,23 @@
-# AI Resume Screening System — TF-IDF Candidate Ranking
+# AI Resume Screening System — TF-IDF Candidate Ranking Prototype
 
-## Project Overview
+> **Applied NLP prototype:** text preprocessing, TF-IDF similarity, structured signals, weighted scoring, and transparent limitations.
 
-This project builds a **rule-assisted resume ranking workflow** using Python, text preprocessing, TF-IDF, cosine similarity, and structured scoring.
+## Recruiter Snapshot
 
-The system compares synthetic resumes against a job description and produces a ranked candidate list using multiple signals such as skills, education, experience, and **lexical text similarity**.
+| Area | Evidence |
+|---|---|
+| Language | Python |
+| Data | synthetic resumes |
+| Text methods | TF-IDF, cosine similarity |
+| Structured signals | skills, education, experience |
+| Output | ranked candidate list and shortlist export |
+| Limitation awareness | no labelled benchmark, fairness study, or calibrated probability |
 
-> TF-IDF + cosine similarity is used here as a text-similarity baseline. It should not be interpreted as a modern embedding-based semantic model.
+## Project Objective
 
-## Objective
+This project explores how a lightweight workflow can:
 
-The project explores how a lightweight automated workflow can:
-
-- preprocess resume text
+- clean and normalize resume text
 - compare resumes with a job description
 - detect skill overlap
 - extract simple experience signals
@@ -20,55 +25,14 @@ The project explores how a lightweight automated workflow can:
 - rank candidates consistently
 - export a shortlist for review
 
-The project demonstrates a ranking workflow; it does **not** claim validated improvements in hiring accuracy without a labelled benchmark or human-evaluation study.
-
-## Features
-
-- resume preprocessing and cleaning
-- TF-IDF vectorization
-- cosine-similarity scoring
-- skill overlap detection
-- education matching
-- regex-based experience extraction
-- weighted candidate scoring
-- interactive filtering with ipywidgets
-- shortlist export
-- score visualization
-
-## Tech Stack
-
-| Category | Tools |
-|---|---|
-| Language | Python |
-| Data handling | Pandas |
-| Text representation | TF-IDF Vectorizer |
-| Similarity | Cosine Similarity |
-| Visualization | Matplotlib |
-| Interactive controls | ipywidgets |
-| Environment | Jupyter Notebook |
-
-## Dataset
-
-The repository uses a **synthetic resume dataset** with fields such as:
-
-- Name
-- Email
-- Phone
-- Summary
-- Skills
-- Education
-- Experience
-- Projects
-- Certifications
-
-Because the data is synthetic, the project is best viewed as a workflow prototype rather than a validated production hiring system.
+> TF-IDF + cosine similarity is a **lexical similarity baseline**, not a modern semantic embedding model.
 
 ## Workflow
 
 ```text
 Synthetic resumes
       ↓
-Text cleaning / preprocessing
+Text preprocessing
       ↓
 Job-description processing
       ↓
@@ -76,53 +40,69 @@ TF-IDF representation
       ↓
 Cosine similarity
       ↓
-Structured skill / education / experience signals
+Skill / education / experience signals
       ↓
 Weighted score
       ↓
 Candidate ranking
       ↓
-Interactive review / CSV export
+Interactive review / export
 ```
+
+## Features
+
+- text preprocessing
+- TF-IDF vectorization
+- cosine-similarity scoring
+- skill-overlap detection
+- education matching
+- regex-based experience extraction
+- weighted scoring
+- ipywidgets filtering
+- shortlist export
+- score visualization
 
 ## Sample Output
 
-| Candidate | Final Score |
+| Candidate | Project score |
 |---|---:|
 | Priya Sharma | 2.84 |
 | Amit Khanna | 1.43 |
 | Shruti Shah | 1.42 |
 
-The score is a project-specific ranking value, not a calibrated probability of candidate quality or hiring success.
+The score is a project-specific ranking value. It is **not** a calibrated probability of candidate quality or hiring success.
 
 ## Limitations
 
 - synthetic dataset
-- keyword and lexical dependence
+- lexical and keyword dependence
 - no labelled ground-truth benchmark
-- no recruiter agreement study
-- no fairness / bias evaluation
+- no recruiter-agreement study
+- no fairness / subgroup evaluation
 - no contextual embedding model
-- regex-based experience extraction is simplistic
+- simplistic regex-based experience extraction
 
-## Future Improvements
+## Responsible Use
 
-- Sentence Transformers or other embedding models
-- PDF resume parsing
-- Streamlit deployment
-- labelled evaluation dataset
-- recruiter agreement metrics
-- fairness and subgroup analysis
-- calibration of ranking weights
-- explainable score breakdowns
+This repository is a learning prototype for ranking-system design. It should not be used as an autonomous hiring decision system without proper validation, fairness testing, human review, and governance.
 
-## How to Run
+## Repository Structure
 
-1. Clone the repository.
-2. Install the libraries used in the notebook, such as Pandas, scikit-learn, Matplotlib, Jupyter, and ipywidgets.
-3. Launch Jupyter Notebook.
-4. Open `AI-Resume-Screening-System.ipynb`.
+```text
+AI-Resume-Screening-System/
+├── README.md
+├── requirements.txt
+├── AI-Resume-Screening-System.ipynb
+└── synthetic_resumes.csv
+```
+
+## Run Locally
+
+1. Install the packages in `requirements.txt`.
+2. Launch Jupyter Notebook.
+3. Open `AI-Resume-Screening-System.ipynb`.
+4. Run the notebook using the included synthetic dataset.
 
 ## What This Project Demonstrates
 
-This project demonstrates **text preprocessing, similarity modelling, structured scoring, and ranking-system design** while making the limits of a TF-IDF prototype explicit.
+**Text preprocessing, similarity modelling, structured scoring, transparent assumptions, and ranking-workflow design.**
